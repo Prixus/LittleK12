@@ -168,6 +168,9 @@
            $(document).on('click', '#SubmitADD', function(){
              $.ajax({
               type: 'POST',
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
               url: '/register/send',
               data: {
                 '_token': $('input[name=_token]').val(),
